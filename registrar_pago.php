@@ -30,7 +30,8 @@ require_once('include/seguridad.php');
 		<!-- Contenido -->
 		<div class="container-fluid">
 			<div class="page-header">
-				<h1 class="text-titles">Control de Caja <small>Ingresos/Egresos</small></h1>
+				<h1 class="text-titles">
+					<i class=" zmdi zmdi-money zmdi-hc-fw"></i>Control de Caja <small>Ingresos/Egresos</small></h1>
 			</div>
 		</div>
 		<div class="row">
@@ -39,7 +40,8 @@ require_once('include/seguridad.php');
 					<!-- ****************************ingresos************************************ -->
 					<div class="col-md-6">
 						<div class="form-group">
-							<i class=" zmdi zmdi-money zmdi-hc-2x"></i>
+							<i class="zmdi zmdi-plus-circle zmdi-hc-2x"></i>
+
 							<button type="button" class="btn btn-success" id="ingreso_b" name="ingreso_b">cargar ingreso</button>
 						</div>
 						<div class="form-group label-floating">
@@ -74,7 +76,8 @@ require_once('include/seguridad.php');
 					<!-- ****************************egresos************************************ -->
 					<div class="col-md-6 col-12 ">
 						<div class="form-group">
-							<i class="zmdi zmdi-money-off zmdi-hc-2x"></i>
+							<i class="zmdi zmdi-minus-circle zmdi-hc-2x"></i>
+
 							<button type="button" class="btn btn-danger" id="egreso_b" name="egreso_b">cargar egreso</button>
 						</div>
 						<div class="form-group label-floating">

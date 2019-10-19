@@ -31,10 +31,10 @@ require_once('include/seguridad.php');
 		<!-- Content page -->
 		<div class="container-fluid">
 			<div class="page-header">
-				<h2 class="text-titles">
+				<h1 class="text-titles">
 					<i class="zmdi zmdi-account zmdi-hc-fw"></i>Registro
 					<small> de Socios</small>
-				</h2>
+				</h1>
 			</div>
 			<!-- content formulario -->
 
@@ -307,7 +307,7 @@ require_once('include/seguridad.php');
 	<script>
 		$.material.init();
 	</script>
-	<script src="./js/socio.js"></script>
+	<script src="./js/altasocio.js"></script>
 </body>
 
 

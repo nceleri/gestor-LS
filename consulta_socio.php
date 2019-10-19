@@ -16,11 +16,11 @@ require_once('include/seguridad.php');
   <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
   <link rel="stylesheet" type="text/css" href="js/bootbox.min.js">
 
-  <script>
+  <!-- <script>
     function abrir(url) {
       open('ver_socio.php?n=' + url, '', 'top=700,left=700,width=700,height=500');
     }
-  </script>
+  </script> -->
 </head>
 
 <body>
@@ -42,9 +42,11 @@ require_once('include/seguridad.php');
     <!-- Contenido -->
     <div class="container-fluid">
       <div class="page-header">
-        <h1 class="text-titles">Busqueda <small>de socios</small></h1>
+        <h1 class="text-titles">
+          <i class="zmdi zmdi-search zmdi-hc-fw"></i>
+          Busqueda <small>de socios</small></h1>
       </div>
-     
+
     </div>
     <div class="full-box text-center" style="padding: 30px 10px;">
       <!-- DATATABLE CON TODOS LOS SOCIOS -->
@@ -91,6 +93,7 @@ require_once('include/seguridad.php');
   <!--====== Scripts -->
   <script src="./js/jquery-3.1.1.min.js"></script>
   <script src="./js/sweetalert2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script src="./js/material.min.js"></script>
   <script src="./js/ripples.min.js"></script>

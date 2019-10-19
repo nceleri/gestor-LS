@@ -35,7 +35,10 @@ include('include/querys.php');
 		<!-- Contenido -->
 		<div class="container-fluid">
 			<div class="page-header">
-				<h1 class="text-titles">Control <small>de estadisticas</small></h1>
+				<h1 class="text-titles">
+					<i class="zmdi zmdi-alert-polygon zmdi-hc-fw"></i>
+					Control <small>de estadisticas</small>
+				</h1>
 			</div>
 		</div>
 		<div class="full-box text-center" style="padding: 30px 10px;">
