@@ -1,16 +1,19 @@
 <?php
 require_once('include/conexion.php');
+require_once('include/seguridad.php');
 
-// $dni = $_GET['n'];
+$dni = $_GET['n'];
 
-// $sql = "SELECT * FROM socio WHERE nro_s= '$dni'";
-// $res = ejecutarConsultaSimpleFila($sql);
+$sql = "SELECT * FROM socio WHERE id_socio= '$dni'";
+
+$res = ejecutarConsultaSimpleFila($sql);
+var_dump($res);
+die();
 // $nro_socio = $res['nro_s'];
 // $nombre = $res['nombre_s'];
 ?>
-<?php
-require_once('include/seguridad.php');
-?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -41,7 +44,9 @@ require_once('include/seguridad.php');
         <div class="container-fluid">
             <div class="page-header">
                 <h1 class="text-titles">
-                    <i class=" zmdi zmdi-money zmdi-hc-fw"></i>Detalle socio numero: <small><?php echo $nro_socio; ?></small></h1>
+                    <i class=" zmdi zmdi-money zmdi-hc-fw"></i>Detalle socio numero:
+                    <!-- <small>?php echo $nro_socio; ?</small> -->
+                </h1>
             </div>
         </div>
 
