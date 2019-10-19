@@ -34,8 +34,9 @@ function eliminacion(id) {
   });
 }
 
-function abrir(url) {
-  alert("llego");
+function abrir(id) {
+  window.location.href = "ver_socio.php?n=" + id;
+
   // open('ver_socio.php?n=' + url, '', 'top=700,left=700,width=700,height=500');
 }
 
