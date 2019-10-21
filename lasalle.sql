@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2019 a las 21:53:06
--- Versión del servidor: 10.4.8-MariaDB
--- Versión de PHP: 7.3.10
+-- Tiempo de generación: 20-10-2019 a las 01:32:41
+-- Versión del servidor: 10.1.36-MariaDB
+-- Versión de PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,6 +45,69 @@ INSERT INTO `admin` (`id_admin`, `usuario`, `clave`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `caja`
+--
+
+CREATE TABLE `caja` (
+  `id_caja` int(11) NOT NULL,
+  `fecha` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `caja`
+--
+
+INSERT INTO `caja` (`id_caja`, `fecha`) VALUES
+(1, '2019-10-18'),
+(2, '2019-10-19'),
+(3, '2019-10-20');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `caja_egreso`
+--
+
+CREATE TABLE `caja_egreso` (
+  `id_caja_egreso` int(11) NOT NULL,
+  `monto` decimal(8,2) DEFAULT NULL,
+  `concepto` varchar(150) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `id_caja` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `caja_egreso`
+--
+
+INSERT INTO `caja_egreso` (`id_caja_egreso`, `monto`, `concepto`, `id_caja`) VALUES
+(7, '7300.00', 'Luz primer bimestre', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `caja_ingreso`
+--
+
+CREATE TABLE `caja_ingreso` (
+  `id_caja_ingreso` int(11) NOT NULL,
+  `monto` decimal(8,2) DEFAULT NULL,
+  `concepto` varchar(150) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `id_caja` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `caja_ingreso`
+--
+
+INSERT INTO `caja_ingreso` (`id_caja_ingreso`, `monto`, `concepto`, `id_caja`) VALUES
+(31, '7600.00', 'Entradas del seven', 2),
+(32, '800.00', 'Camiseta XL', 2),
+(33, '500.00', 'Short M', 2),
+(34, '2000.00', 'Probando', 3);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `configuraciones`
 --
 
@@ -60,7 +123,7 @@ CREATE TABLE `configuraciones` (
 --
 
 INSERT INTO `configuraciones` (`id_unica_configuracion`, `cuota_menor`, `cuota_mayor`, `descuento_becado`) VALUES
-(1, 1.00, 1.00, 1.00);
+(1, 550.00, 750.00, 300.00);
 
 -- --------------------------------------------------------
 
@@ -78,6 +141,13 @@ CREATE TABLE `contacto_socio` (
   `email` varchar(70) COLLATE utf8_spanish2_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `contacto_socio`
+--
+
+INSERT INTO `contacto_socio` (`id_socio`, `domicilio`, `ciudad`, `codigo_postal`, `celular`, `telefono`, `email`) VALUES
+(409672872, 'Avaya', 'Santa fe', 3019, 2147483647, 4836726, 'lauchi@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -93,6 +163,13 @@ CREATE TABLE `cuenta_socio` (
   `banco` varchar(500) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `sucursal` varchar(500) COLLATE utf8_spanish2_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `cuenta_socio`
+--
+
+INSERT INTO `cuenta_socio` (`id_socio`, `titular`, `cuenta`, `numero_cuenta`, `cbu`, `banco`, `sucursal`) VALUES
+(409672872, 'Lautaro, Gonzalez', 'CA', '3002989297817812', '219887872878221', 'Patagonia', '2');
 
 -- --------------------------------------------------------
 
@@ -113,6 +190,13 @@ CREATE TABLE `info_socio` (
   `estado` enum('Alta','Baja') COLLATE utf8_spanish2_ci DEFAULT NULL,
   `categoria` enum('Mayor','Menor','Vitalicio','Empleado') COLLATE utf8_spanish2_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `info_socio`
+--
+
+INSERT INTO `info_socio` (`id_socio`, `obra_social`, `division`, `fecha_alta`, `fichado_uar`, `carnet`, `ficha`, `becado`, `forma_de_pago`, `estado`, `categoria`) VALUES
+(409672872, 'UTA', 'M16', '2013-10-29', '2016-11-29', 'Si', 'Si', 'Si', 'Debito', 'Alta', 'Mayor');
 
 -- --------------------------------------------------------
 
@@ -152,6 +236,13 @@ CREATE TABLE `socio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
+-- Volcado de datos para la tabla `socio`
+--
+
+INSERT INTO `socio` (`id_socio`, `nombre`, `apellido`, `cuit`, `fecha_nac`, `sexo`) VALUES
+(409672872, 'Lautaro', 'Gonzalez', 2147483647, '2016-10-30', 'M');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -160,6 +251,26 @@ CREATE TABLE `socio` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Indices de la tabla `caja`
+--
+ALTER TABLE `caja`
+  ADD PRIMARY KEY (`id_caja`);
+
+--
+-- Indices de la tabla `caja_egreso`
+--
+ALTER TABLE `caja_egreso`
+  ADD PRIMARY KEY (`id_caja_egreso`),
+  ADD KEY `id_caja` (`id_caja`);
+
+--
+-- Indices de la tabla `caja_ingreso`
+--
+ALTER TABLE `caja_ingreso`
+  ADD PRIMARY KEY (`id_caja_ingreso`),
+  ADD KEY `id_caja` (`id_caja`);
 
 --
 -- Indices de la tabla `configuraciones`
@@ -196,8 +307,38 @@ ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT de la tabla `caja`
+--
+ALTER TABLE `caja`
+  MODIFY `id_caja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `caja_egreso`
+--
+ALTER TABLE `caja_egreso`
+  MODIFY `id_caja_egreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `caja_ingreso`
+--
+ALTER TABLE `caja_ingreso`
+  MODIFY `id_caja_ingreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `caja_egreso`
+--
+ALTER TABLE `caja_egreso`
+  ADD CONSTRAINT `caja_egreso_ibfk_1` FOREIGN KEY (`id_caja`) REFERENCES `caja` (`id_caja`);
+
+--
+-- Filtros para la tabla `caja_ingreso`
+--
+ALTER TABLE `caja_ingreso`
+  ADD CONSTRAINT `caja_ingreso_ibfk_1` FOREIGN KEY (`id_caja`) REFERENCES `caja` (`id_caja`);
 
 --
 -- Filtros para la tabla `contacto_socio`

@@ -17,9 +17,9 @@ if ($result->num_rows > 0) {
 	 $row = $result->fetch_array(MYSQLI_ASSOC); 
 	    $_SESSION['loggedin'] = true;
 	    $_SESSION['login_user'] = $row['usuario'];
-	    header('Location: http://localhost/PlantillaLaSalle'); 
+	    header('Location: http://localhost/gestor-LS-master'); 
 }else{
-  header('Location: http://localhost/PlantillaLaSalle/login.php?error=1');
+  header('Location: http://localhost/gestor-LS-master/login.php?error=1');
 }
       
  mysqli_close($conexion); 

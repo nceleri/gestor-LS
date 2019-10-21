@@ -5,7 +5,6 @@ include('include/querys.php');
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,7 +13,14 @@ include('include/querys.php');
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="./css/main.css">
-</head>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js" integrity="sha256-qSIshlknROr4J8GMHRlW3fGKrPki733tLq+qeMCR05Q=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js" integrity="sha256-arMsf+3JJK2LoTGqxfnuJPFTU4hAK57MtIPdFpiHXOU=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+	</head>
 
 <body>
 	<?php
@@ -41,10 +47,10 @@ include('include/querys.php');
 				</h1>
 			</div>
 		</div>
-		<div class="full-box text-center" style="padding: 30px 10px;">
+		<div class="full-box text-center">
 
 
-			<!-- MOSTRAR CANTIDAD DE CLIENTES REGISTRADOS -->
+			<!-- MOSTRAR CANTIDAD DE CLIENTES REGISTRADOS 
 			<article class="full-box tile">
 				<div class="full-box tile-title text-center text-titles text-uppercase">
 					Socios
@@ -60,7 +66,7 @@ include('include/querys.php');
 
 
 
-			<!-- MOSTRAR CANTIDAD DE AUTOS REGISTRADOS -->
+			 MOSTRAR CANTIDAD DE AUTOS REGISTRADOS 
 			<article class="full-box tile">
 				<div class="full-box tile-title text-center text-titles text-uppercase">
 					Socios
@@ -75,24 +81,51 @@ include('include/querys.php');
 			</article>
 
 
-			<!-- MOSTRAR CANTIDAD DE OPERARIOS -->
+			 MOSTRAR CANTIDAD DE OPERARIOS 
 
 			<article class="full-box tile">
 				<div class="full-box tile-title text-center text-titles text-uppercase">
 					otro
 				</div>
 				<div class="full-box tile-icon text-center">
-					<i class="zmdi zmdi-male"></i>
+					<i class="zmdi zmdi-money"></i>
 				</div>
 				<div class="full-box tile-number text-titles">
-					<p class="full-box">22</p>
+					<p class=""><?php IngresosMes(); ?></p>
 					<small>a disposicion</small>
 				</div>
 			</article>
-
-
+		
+-->
 		</div>
-
+	<div class="row">
+		<div class="col-md-12">
+			<center><h2>Gráficos estadísticos</h2></center>
+		</div>		
+	</div>
+	<div class="row" style="margin-left: 5px;">
+		<div class="col-md-6" id="chart">
+			<center><h5>Medios de pago</h5></center>
+			<canvas id="myChart" width="300px" height="300px"></canvas>
+		</div>
+		<div class="col-md-6" id="chart">
+			<center><h5>Comparación por mes</h5></center>
+			<canvas id="chartCuotas" width="300px" height="300px"></canvas>
+		</div>
+	</div>
+	<div class="row" style="margin-left: 5px;">
+		<div class="col-md-6" id="chart">
+			<center><h5>Medios de pago</h5></center>
+			<canvas id="chart3" width="300px" height="300px"></canvas>
+		</div>
+		<div class="col-md-6" id="chart">
+			<center><h5>Pago de cuotas</h5></center>
+			<canvas id="chart4" width="300px" height="300px"></canvas>
+		</div>
+	</div>
+<script src="js/estadisticas.js"></script>
+		</div>
+	</div>
 	</section>
 	<!--====== Scripts -->
 	<script src="./js/jquery-3.1.1.min.js"></script>
@@ -105,6 +138,7 @@ include('include/querys.php');
 	<script>
 		$.material.init();
 	</script>
+	
 </body>
 
 </html>

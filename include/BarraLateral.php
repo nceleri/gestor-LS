@@ -71,7 +71,7 @@
 				</a>
 				<ul class="list-unstyled full-box">
 					<li>
-						<a href="registrar_pago.php"><i class="zmdi zmdi-check"></i> Ingresos/Egresos</a>
+						<a href="IECaja.php"><i class="zmdi zmdi-check"></i> Ingresos/Egresos</a>
 					</li>
 					<li>
 						<a href="resumen_caja_fecha.php"><i class="zmdi zmdi-close-circle"></i> Caja por fecha</a>

@@ -4,10 +4,19 @@ require_once('include/seguridad.php');
 
 $dni = $_GET['n'];
 
-$sql = "SELECT * FROM socio WHERE id_socio= '$dni'";
+$QuerySocio = "SELECT * FROM socio WHERE id_socio= '$dni'";
+$QueryInfo = "SELECT * FROM info_socio WHERE id_socio= '$dni'";
+$QueryCuenta = "SELECT * FROM cuenta_socio WHERE id_socio='$dni'";
 
-$res = ejecutarConsultaSimpleFila($sql);
-var_dump($res);
+$Socio = ejecutarConsultaSimpleFila($QuerySocio); // ACA GUARDAMOS EN ARRAY DATOS DEL SOCIO
+$Info = ejecutarConsultaSimpleFila($QueryInfo); // ACA LA INFO DEL SOCIO
+$Cuenta = ejecutarConsultaSimpleFila($QueryCuenta); // DATOS DE LA CUENTA, PUEDE NO TENER
+
+var_dump($Socio);
+echo "<br>";
+var_dump($Info);
+echo "<br>";
+var_dump($Cuenta);
 die();
 // $nro_socio = $res['nro_s'];
 // $nombre = $res['nombre_s'];
